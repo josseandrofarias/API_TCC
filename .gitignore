@@ -3,3 +3,9 @@
 
 #Node Modules
 node_modules/
+
+#jwt
+src/config/.env
+
+#arquivos de log
+*.log
