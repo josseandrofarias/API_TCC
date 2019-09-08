@@ -1,0 +1,12 @@
+root = true
+
+[*]
+charset = utf-8
+indent_style = space
+indent_size = 2
+# maner padrão do windows para o linux
+end_of_line = lf
+# add new line ao chegar no final
+insert_final_newline = true
+# remove o espaço automático
+trim_trailing_whitespace = true
