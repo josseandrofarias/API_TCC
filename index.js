@@ -6,6 +6,7 @@ const consign = require('consign')
 
 consign()
     .then(path.resolve('/src', 'config', 'middlewares.js'))
+    .then(path.resolve('/src', 'config', 'auth.js'))
     .then(path.resolve('/src', 'controllers'))
     .then(path.resolve('/src', 'routes', 'principal.js'))
     .into(server)
