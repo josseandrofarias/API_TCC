@@ -6,9 +6,10 @@ exports.up = function(knex) {
           .inTable('pessoa').notNullable()
       table.integer('id_setor').references('id')
           .inTable('setor')
+      table.boolean('status').notNullable().defaultTo(true)
   })
 };
 
 exports.down = function(knex) {
-  return knex.dropTable('funcionario')
+  return knex.schema.dropTable('funcionario')
 };
