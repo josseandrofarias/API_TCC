@@ -14,6 +14,8 @@ module.exports = app => {
             const password = hash
             let body = req.body
             console.log(body)
+            const {filename: avatar} = !req.file ? {filename: null} : req.file
+
             app.db('pessoa')
                 .insert({
                     nome: body.nome,
@@ -21,10 +23,11 @@ module.exports = app => {
                     cpf: body.cpf,
                     data_nascimento: body.data_nascimento,
                     status: body.status,
-                    senha: password
+                    senha: password,
+                    img: avatar
                 })
-                .then(_ => res.status(204).send())
-                .catch(err => res.status(400).json(err))
+                .then(_ => res.status(204).send('Usuário Cadastrado'))
+                .catch(err => res.status(500).json(err))
         })
     }
 
