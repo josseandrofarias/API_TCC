@@ -9,3 +9,6 @@ src/config/.env
 
 #arquivos de log
 *.log
+
+# ignorar pasta onde ficará as imagens dos usuários
+temp/
