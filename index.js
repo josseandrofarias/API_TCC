@@ -3,12 +3,12 @@ const server = require( path.resolve( 'src', 'config', 'server.js')) //start ser
 
 const db = require(path.resolve( 'src', 'config', 'db.js'))
 const consign = require('consign')
-
+console.log(__dirname)
 consign()
-    .then(path.resolve('/src', 'config', 'middlewares.js'))
-    .then(path.resolve('/src', 'config', 'auth.js'))
-    .then(path.resolve('/src', 'controllers'))
-    .then(path.resolve('/src', 'routes', 'principal.js'))
+    .include(path.resolve('/', 'src', 'config', 'passport.js'))
+    .then(path.resolve('/' , 'src', 'config', 'middlewares.js'))
+    .then(path.resolve('/' , 'src', 'controllers'))
+    .then(path.resolve('/' , 'src', 'routes', 'principal.js'))
     .into(server)
 
 server.db = db

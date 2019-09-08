@@ -1,7 +1,7 @@
 const path = require('path')
 const jwt = require('jwt-simple')
 const bcrypt = require('bcrypt-nodejs')
-const { authSecret } = require(path.resolve(__dirname, '.env'))
+const { authSecret } = require(path.resolve( 'src', 'config', '.env'))
 
 module.exports = app => {
     const login = async  (req, res) => {
