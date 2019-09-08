@@ -8,6 +8,7 @@ exports.up = function(knex) {
       table.date('data_nascimento').notNullable()
       table.boolean('status').notNullable().defaultTo(true)
       table.string('senha', 255).notNullable()
+      table.string('img').defaultTo(null)
   })
 };
 
