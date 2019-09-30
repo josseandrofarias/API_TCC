@@ -3,6 +3,7 @@ exports.up = function(knex) {
   return knex.schema.createTable('pessoa', table => {
       table.increments('id').primary()
       table.string('nome', 100).notNullable()
+      table.string('sobrenome', 100).notNullable()
       table.string('email', 100).notNullable().unique()
       table.bigInteger('cpf', 12).notNullable().unique()
       table.date('data_nascimento').notNullable()

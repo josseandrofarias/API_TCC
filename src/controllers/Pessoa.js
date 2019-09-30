@@ -19,6 +19,7 @@ module.exports = app => {
             app.db('pessoa')
                 .insert({
                     nome: body.nome,
+                    sobrenome: body.sobrenome,
                     email: body.email,
                     cpf: body.cpf,
                     data_nascimento: body.data_nascimento,
