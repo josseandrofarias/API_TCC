@@ -9,6 +9,7 @@ module.exports = app => {
     app.post('/login', app.src.controllers.auth.login)
 
     app.post('/pedido', app.src.controllers.Pedido.save)
+    app.get('/setores', app.src.controllers.Setor.getSetores)
     // app.route('/empresa')
     //     .all(app.src.config.passport.authenticate())
     //     .get(app.src.controllers.Empresa.getEmpresas)

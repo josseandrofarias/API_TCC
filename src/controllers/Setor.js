@@ -4,7 +4,7 @@ module.exports = app => {
             .innerJoin('empresa', 'empresa.id', 'setor.id_empresa')
             .where({id: req.params.id, status: true})
             .then(setor => res.json(setor))
-            .catch(err => rest.status(500).json(err))
+            .catch(err => res.status(500).json(err))
     }
 
     const getSetors = (req, res) => {
@@ -13,7 +13,15 @@ module.exports = app => {
             .where({status: true})
             .orderBy('nome' )
             .then(setor => res.json(setor))
-            .catch(err => rest.status(500).json(err))
+            .catch(err => res.status(500).json(err))
+    }
+
+    const getSetores = (req, res) => {
+        app.db('setor')
+            .where({status: true})
+            .orderBy('nome' )
+            .then(setor => res.json(setor))
+            .catch(err => res.status(500).json(err))
     }
 
     const save = (req, res) => {
@@ -70,6 +78,7 @@ module.exports = app => {
     return {
         getSetor,
         getSetors,
+        getSetores,
         save,
         remove,
         update,
