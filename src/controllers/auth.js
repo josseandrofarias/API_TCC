@@ -19,6 +19,10 @@ module.exports = app => {
                 const payload = {id: user.id} //colocar dentro do token jwt para maior segurança
                 res.json({
                     nome: user.nome,
+                    sobrenome: user.sobrenome,
+                    cpf: user.cpf,
+                    data_nascimento: user.data_nascimento,
+                    telefone: user.telefone,
                     email: user.email,
                     token: jwt.encode(payload, authSecret),
                 })
