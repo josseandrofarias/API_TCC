@@ -8,7 +8,18 @@ module.exports = app => {
             .leftJoin('imagem', 'imagem.id_pedido', 'pedido.id')
             .where({id: req.params.id})
             .then(pedido => res.json(pedido))
-            .catch(err => rest.status(500).json(err))
+            .catch(err => res.status(500).json(err))
+    }
+
+    const getPedidoPessoa = (req, res) => {
+        console.log(req.params)
+        app.db('pedido')
+            .innerJoin('pessoa', 'pessoa.id', 'pedido.id_pessoa')
+            .innerJoin('setor', 'setor.id', 'pedido.id_setor')
+            .leftJoin('imagem', 'imagem.id_pedido', 'pedido.id')
+            .where({id_pessoa: req.params.id_pessoa})
+            .then(pedido => res.json(pedido))
+            .catch(err => res.status(500).json(err))
     }
 
     const save = (req, res) => {
@@ -45,6 +56,7 @@ module.exports = app => {
 
     return {
         getPedido,
+        getPedidoPessoa,
         save,
         remove,
         update

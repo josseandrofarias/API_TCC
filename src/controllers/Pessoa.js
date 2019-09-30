@@ -32,5 +32,15 @@ module.exports = app => {
         })
     }
 
-    return { save }
+    const update = (req, res, obj = null) => {
+        if(obj == null) obj = req.params
+
+        app.db('pessoa')
+            .where({id: req.params.id})
+            .update(obj)
+            .then(_ => res.status(204).send('Dados Atualizados!'))
+            .catch(err => res.status(400).json(err))
+    }
+
+    return { save, update }
 }
