@@ -6,10 +6,13 @@ const upload = require('multer')(storage)
 module.exports = app => {
     // console.log(app)
     app.post('/cadastrar', upload.single('avatar'), app.src.controllers.Pessoa.save)
+    app.post('/atualizaCadastro', upload.single('avatar'), app.src.controllers.Pessoa.update)
     app.post('/login', app.src.controllers.auth.login)
 
     app.post('/pedido', app.src.controllers.Pedido.save)
+    app.get('/pedidos/:id_pessoa', app.src.controllers.Pedido.getPedidoPessoa)
     app.get('/setores', app.src.controllers.Setor.getSetores)
+
     // app.route('/empresa')
     //     .all(app.src.config.passport.authenticate())
     //     .get(app.src.controllers.Empresa.getEmpresas)
